@@ -1,11 +1,21 @@
 var connection = require('../db/connection');
 var Promise = require('es6-promise').Promise;
 
+/**
+ * Simple data representation of a flash card
+ */
 var FlashCard = function(props) {
   this.dictionary = props.dictionary;
   this.audioClipEnglish = props.audioClipEnglish;
   this.audioClipFrench = props.audioClipFrench;
 };
+
+/**
+ * The following methods act like a simple ORM (Object-Relational Mapper),
+ *  in that they map DB records to javascript objects.
+ * Making an ORM is hard, so I would suggest taking a look at a well-established
+ * library (search Google for "node MySQL ORM")
+ */
 
 FlashCard.findEnglishAndFrenchByEnglish = function(englishWord) {
   return connection.

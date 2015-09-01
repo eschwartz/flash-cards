@@ -4,18 +4,26 @@
   <meta charset="UTF-8">
   <title>FlashCards</title>
 
+  {{!--Vendor libraries (jQuery, Howler)--}}
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.26/howler.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 
+  {{!--CSS styles--}}
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
   <div id="app"></div>
 
   <script type="text/javascript">
-    window.flashCards = {{json flashCards}}
+    /*
+      The server will pass us the flashCards JSON data.
+      Here, we're exposing that data as a global variable,
+      so we can access it in our client-side application code
+    */
+    window.flashCards = {{json flashCards}};
   </script>
 
+  {{!--Load the client-side application code from public/js/cards.js--}}
   <script type="text/javascript" src="./js/cards.js"></script>
 </body>
 </html>
