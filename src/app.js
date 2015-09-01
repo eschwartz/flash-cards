@@ -1,8 +1,8 @@
 var express = require('express');
 var serveStatic = require('serve-static');
 var FlashCard = require('./model/flash-card');
-var fileTemplate = require('./view-helper/file-template');
 var Handlebars = require('handlebars');
+var fs = require('fs');
 
 var app = express();
 
@@ -47,7 +47,9 @@ app.use(serveStatic(__dirname + '/../public', {
 }));
 
 function render(viewName, data) {
-  var template = fileTemplate(__dirname + '/view/' + viewName + '.html.hbs');
+  var path = __dirname + '/view/' + viewName + '.html.hbs';
+  var view = fs.readFileSync(path, {encoding: 'utf8'});
+  var template = Handlebars.compile(view);
   return template(data);
 }
 
