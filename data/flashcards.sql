@@ -11,7 +11,7 @@ CREATE TABLE `dictionary` (
 );
 
 CREATE TABLE `audio` (
-  `id` INT UNSIGNED NOT NULL,
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `src` VARCHAR(128) NOT NULL,
   PRIMARY KEY (`id`)
 );
@@ -20,8 +20,8 @@ CREATE TABLE `dictionary_audio` (
   `dictionary_id` INT UNSIGNED NOT NULL,
   `audio_id` INT UNSIGNED NOT NULL,
   `language` VARCHAR(64) NOT NULL,
-  `start_time` DATETIME NOT NULL,
-  `stop_time` DATETIME NOT NULL,
+  `start_time` INT NOT NULL,
+  `stop_time` INT NOT NULL,
   PRIMARY KEY (`dictionary_id`, `audio_id`, `language`),
   INDEX `fk_audio_id` (`audio_id` ASC),
   INDEX `fk_dictionary_id` (`dictionary_id` ASC),
