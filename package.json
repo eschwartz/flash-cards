@@ -10,6 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "es6-promise": "^3.0.2",
-    "mysql": "felixge/node-mysql"
+    "express": "^4.13.3",
+    "handlebars": "^4.0.0",
+    "mysql": "felixge/node-mysql",
+    "serve-static": "^1.10.0"
   }
 }
